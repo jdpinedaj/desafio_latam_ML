@@ -82,7 +82,7 @@ async def root():
 @app.post("/predict")
 async def predict(flight_info: FlightInformation):
     """
-    Endpoint que devuelve un valor float con la predicción.
+    Endpoint que devuelve un valor float con la predicción de la probabilidad de que un vuelo se retrase.
     """
     model = load("./models/modelxgb_smote_RandomCV_final.pkl")
     data = dict(flight_info)
