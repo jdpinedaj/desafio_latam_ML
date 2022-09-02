@@ -45,13 +45,11 @@ Después de esto, puedes testear la API directamente en el GUI: http://localhost
 Para probar la API, se utilizó la herramienta [wrk](https://github.com/wg/wrk).\
 Para correr la prueba, se utilizó el siguiente comando: `wrk -c50000 -d45s http://localhost:8000/`\, donde los resultados se pueden ver en la siguiente imagen:
 
-![result1](./readme-resources/test_api_1.PNG)\
+![result1](./readme-resources/test_api_1.PNG)
 
 Adicionalmente, se corrieron pruebas para ver el comportamiento de la API cuando se le pasan datos de entrada, según los mismos parámetros anteriores, obteniendo los resultados presentados en la siguiente imagen:
 
-### Consideraciones
-
-- El modelo entregado por el data scientist no es el mismo que se encuentra en el notebook. Esto se debe a que el modelo entregado por el data scientist no funcionaba correctamente.\
+![result2](./readme-resources/test_api_2.PNG)
 
 ### Consideraciones para mejorar el performance de la prueba anterior
 
