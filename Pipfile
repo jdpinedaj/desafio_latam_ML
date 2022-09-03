@@ -17,6 +17,7 @@ fastapi = "*"
 pydantic = "*"
 uvicorn = "*"
 pytest = "*"
+jupyter = "*"
 
 [dev-packages]
 ipykernel = "*"

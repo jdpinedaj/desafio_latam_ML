@@ -39,6 +39,8 @@ Después de esto, puedes testear la API directamente en el GUI: http://localhost
 `test_main.py` contiene el test case para validar que el modelo esté funcionando correctamente.\
 `Dockerfile` configura el servidor e instala las dependencias. Para este desafío he utilizado Uvicorn/FastApi.\
 `docker-compose.yml` simplifica la ejecución para desplegar Docker.
+`Pipfile` y `Pipfile.lock` son usados para manejar las dependencias del proyecto.\
+`.github/workflows` incluye la automatización de la construcción y exposición del modelo.
 
 ### Resultados de pruebas de estrés de la API
 
@@ -58,3 +60,7 @@ Coin el fin de incrementarr el requests/sec lo más posible, y mantener la Laten
 - Utilizar un modelo más simple, como un modelo de regresión logística (tal cual se entrenó, obteniendo buenos resultados, en el [Challenge anterior](https://github.com/jdpinedaj/desafio_latam/blob/master/notebooks/solution.ipynb)
 - Escalar verticalmente, mediante la utilización de más recursos (CPU, RAM, etc).
 - Escalar horizontalmente, mediante la utilización de más servidores.
+
+### Github Actions
+
+Se realiza automatización de la construcción y exposición del modelo utilizando GitHub Actions.
