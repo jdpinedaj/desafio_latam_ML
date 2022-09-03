@@ -4,11 +4,10 @@ import xgboost as xgb
 from joblib import load
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from enum import Enum
 
 
 # Definir las condiciones del vuelo para realizar la predicci
-class Opera(str, Enum):
+class Opera(str):
     Aerolineas_Argentinas = "Aerolineas Argentinas"
     Aeromexico = "Aeromexico"
     Air_Canada = "Air Canada"
@@ -34,7 +33,7 @@ class Opera(str, Enum):
     United_Airlines = "United Airlines"
 
 
-class Mes(int, Enum):
+class Mes(int):
     Enero = 1
     Febrero = 2
     Marzo = 3
@@ -49,7 +48,7 @@ class Mes(int, Enum):
     Diciembre = 12
 
 
-class TipoVuelo(str, Enum):
+class TipoVuelo(str):
     Internacional = "I"
     Nacional = "N"
 
@@ -70,6 +69,8 @@ app = FastAPI(
 
 # Create the endpoint
 
+model = load("./models/modelxgb_smote_RandomCV_final.pkl")
+
 
 @app.get("/")
 async def root():
@@ -84,16 +85,6 @@ async def predict(flight_info: FlightInformation):
     """
     Endpoint que devuelve un valor float con la predicción de la probabilidad de que un vuelo se retrase.
     """
-    model = load("./models/modelxgb_smote_RandomCV_final.pkl")
-    data = dict(flight_info)
-    data["OPERA"] = data["OPERA"].value
-    data["MES"] = data["MES"].value
-    data["TIPOVUELO"] = data["TIPOVUELO"].value
-    data = pd.DataFrame(data, index=[0])
-
-    prediction = model.predict(data).tolist()
+    data = pd.DataFrame(vars(flight_info), index=[0])
     probability = model.predict_proba(data).tolist()
-    return {
-        #"prediction": prediction[0],
-        "Probabilidad de retraso": round(probability[0][1], 2)
-    }
+    return {"Probabilidad de retraso": round(probability[0][1], 2)}
