@@ -15,3 +15,4 @@ COPY ./data ./data
 COPY ./models ./models
 # do tests, usually better to do befor building container, e.g. travis, circelci
 RUN python test_main.py
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
