@@ -40,6 +40,7 @@ Después de esto, puedes testear la API directamente en el GUI: http://localhost
 `Dockerfile` configura el servidor e instala las dependencias. Para este desafío he utilizado Uvicorn/FastApi.\
 `docker-compose.yml` simplifica la ejecución para desplegar Docker.
 `Pipfile` y `Pipfile.lock` son usados para manejar las dependencias del proyecto.\
+`post.lua` y `testing_API.sh` permiten testear la API con el comando `wrk`.\
 `.github/workflows` incluye la automatización de la construcción y exposición del modelo.
 
 ### Resultados de pruebas de estrés de la API
