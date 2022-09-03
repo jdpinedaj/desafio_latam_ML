@@ -1,8 +1,6 @@
 import pandas as pd
-import numpy as np
-import xgboost as xgb
 from joblib import load
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from pydantic import BaseModel
 
 
@@ -65,7 +63,8 @@ class FlightInformation(BaseModel):
 app = FastAPI(
     title="API de predicción de vuelos",
     description="API para predecir la probabilidad de que un vuelo se retrase",
-    version="v1")
+    version="v1",
+)
 
 # Create the endpoint
 
