@@ -56,7 +56,7 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add .
           git commit -m "Updated solution on $(date) with GitHub Actions"
-          git push origin development
+          git push origin -u master
         env:
           REPO_KEY: ${{secrets.GITHUB_TOKEN}}
           username: github-actions
