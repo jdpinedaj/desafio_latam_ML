@@ -65,3 +65,5 @@ Coin el fin de incrementarr el requests/sec lo más posible, y mantener la Laten
 ### Github Actions
 
 Se realiza automatización de la construcción y exposición del modelo utilizando GitHub Actions.
+Se revisan posibles errores en el código corriendo los test cases, y luego se revisa que la API corra localmente.
+El código se encuentra en `.github/workflows/main.yml`.
