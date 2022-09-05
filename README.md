@@ -50,13 +50,13 @@ Para correr la prueba, se utilizó el siguiente comando: `wrk -c50000 -d45s http
 
 ![result1](./readme-resources/test_api_1.PNG)
 
-Adicionalmente, se corrieron pruebas para ver el comportamiento de la API cuando se le pasan datos de entrada, según los mismos parámetros anteriores, obteniendo los resultados presentados en la siguiente imagen:
+Adicionalmente, se corrieron pruebas para ver el comportamiento de la API cuando se le pasan datos de entrada, según los mismos parámetros anteriores mediante la utilizacion del siguiente comando: `wrk -c50000 -d45s -s ./post.lua http://localhost:8000/predict` (utilizando el script presentado en el archivo `post.lua`), obteniendo los resultados presentados en la siguiente imagen:
 
 ![result2](./readme-resources/test_api_2.PNG)
 
 ### Consideraciones para mejorar el performance de la prueba anterior
 
-Coin el fin de incrementarr el requests/sec lo más posible, y mantener la Latencia lo más baja posible, se recomienda tener en cuenta las siguientes alternativas:
+Con el fin de incrementarr el requests/sec lo más posible, y mantener la Latencia lo más baja posible, se recomienda tener en cuenta las siguientes alternativas:
 
 - Utilizar un modelo más simple, como un modelo de regresión logística (tal cual se entrenó, obteniendo buenos resultados, en el [Challenge anterior](https://github.com/jdpinedaj/desafio_latam/blob/master/notebooks/solution.ipynb)
 - Escalar verticalmente, mediante la utilización de más recursos (CPU, RAM, etc).
