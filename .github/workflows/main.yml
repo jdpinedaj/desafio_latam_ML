@@ -48,15 +48,15 @@ jobs:
       - name: Run server in background
         run: uvicorn main:app --host 0.0.0.0 --port 8000 &
 
-      # Commit and push
-      - id: commit
-        name: Commit Results
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git add .
-          git commit -m "Updated solution on $(date) with GitHub Actions"
-          git push origin -u development
-        env:
-          REPO_KEY: ${{secrets.GITHUB_TOKEN}}
-          username: github-actions
+      # # Commit and push
+      # - id: commit
+      #   name: Commit Results
+      #   run: |
+      #     git config --local user.email "actions@github.com"
+      #     git config --local user.name "GitHub Actions"
+      #     git add .
+      #     git commit -m "Updated solution on $(date) with GitHub Actions"
+      #     git push origin -u development
+      #   env:
+      #     REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+      #     username: github-actions
